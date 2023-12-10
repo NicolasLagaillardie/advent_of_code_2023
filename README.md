@@ -4,7 +4,7 @@ Personal Rust attempts at the [Advent of Code 2023](https://adventofcode.com/202
 
 |        | Part I             | Part II            |
 |--------|--------------------|--------------------|
-| Day 1  |                    |                    |
+| Day 1  | :heavy_check_mark: | :heavy_check_mark: |
 | Day 2  |                    |                    |
 | Day 3  |                    |                    |
 | Day 4  |                    |                    |
