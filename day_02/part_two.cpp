@@ -58,7 +58,7 @@ int aux(string file) {
 
   // 12 red cubes
   // 13 green cubes
-  // 14 blue cubes)
+  // 14 blue cubes
 
   string myline;
   if (myfile.is_open()) {
