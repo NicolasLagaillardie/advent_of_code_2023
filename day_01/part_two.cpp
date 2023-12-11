@@ -95,6 +95,7 @@ void test_aux() {
   } else {
     cout << "Test aux example failed" << endl;
   }
+  
   // Test input
   if (aux("puzzle") == 54925) {
     cout << "Test aux input success" << endl;
