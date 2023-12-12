@@ -23,7 +23,7 @@ int check_if_symbol_as_neigh(
     if (find(get<1>(position_of_number).begin(),
              get<1>(position_of_number).end(),
              position_of_symbols) != get<1>(position_of_number).end()) {
-      number_of_close_gears += 1;
+      number_of_close_gears ++;
       result *= get<0>(position_of_number);
 
       if (number_of_close_gears > 2) {
@@ -55,7 +55,7 @@ int aux(string file) {
   string buffer = "";
   vector<tuple<int, int>> temp_positions;
 
-  // Create matrix
+  // Create matrixes
   if (myfile.is_open()) {
     while (myfile) {
       getline(myfile, myline);

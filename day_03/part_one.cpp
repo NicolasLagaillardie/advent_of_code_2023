@@ -39,7 +39,7 @@ int aux(string file) {
   string buffer = "";
   vector<tuple<int, int>> temp_positions;
 
-  // Create matrix
+  // Create matrixes
   if (myfile.is_open()) {
     while (myfile) {
       getline(myfile, myline);
@@ -123,7 +123,7 @@ int main() {
 
   test_aux();
 
-  cout << "Final result for part two: " << aux(file) << endl;
+  cout << "Final result for part one: " << aux(file) << endl;
 
   return 0;
 }
