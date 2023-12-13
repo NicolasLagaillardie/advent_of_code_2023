@@ -119,15 +119,15 @@ void test_aux() {
 }
 
 int main() {
-  // cout << "what is the name of your file?" << endl;
+  cout << "what is the name of your file?" << endl;
 
-  // string file;
+  string file;
 
-  // cin >> file;
+  cin >> file;
 
   test_aux();
 
-  // cout << "Final result for part two: " << aux(file) << endl;
+  cout << "Final result for part two: " << aux(file) << endl;
 
   return 0;
 }
