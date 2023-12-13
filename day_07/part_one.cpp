@@ -11,6 +11,9 @@
 #include <vector>
 using namespace std;
 
+vector<string> cards = {"A", "K", "Q", "J", "T", "9", "8",
+                        "7", "6", "5", "4", "3", "2"};
+
 // Split string according to del(imiter)
 vector<string> split_string(string s, string del = " ") {
   vector<string> result;
@@ -35,14 +38,12 @@ long int aux(string file) {
   string myline;
 
   vector<string> string_time_line;
-  vector<string> vec_time;
-  string string_time;
-  long int int_time;
+  vector<string> string_time;
+  vector<long int> int_time;
 
   vector<string> string_distance_line;
-  vector<string> vec_distance;
-  string string_distance;
-  long int int_distance;
+  vector<string> string_distance;
+  vector<long int> int_distance;
 
   // Split lines then immediately compute everything
   if (myfile.is_open()) {
@@ -54,35 +55,41 @@ long int aux(string file) {
 
         if (myline.find("Time:") != string::npos) {
           string_time_line = split_string(myline, "Time:");
-          vec_time = split_string(string_time_line[1]);
+          string_time = split_string(string_time_line[1]);
 
-          for (const auto &elem : vec_time) {
+          for (const auto &elem : string_time) {
             if (elem != "") {
-              string_time += elem;
+              int_time.push_back(stol(elem));
             }
           }
-
-          int_time = stol(string_time);
         } else if (myline.find("Distance:") != string::npos) {
           string_distance_line = split_string(myline, "Distance:");
-          vec_distance = split_string(string_distance_line[1]);
+          string_distance = split_string(string_distance_line[1]);
 
-          for (const auto &elem : vec_distance) {
+          for (const auto &elem : string_distance) {
             if (elem != "") {
-              string_distance += elem;
+              int_distance.push_back(stol(elem));
             }
           }
-
-          int_distance = stol(string_distance);
         }
       }
     }
   }
-  // Get final result
-  long int result = 0;
 
-  for (long int i = 0; i < int_time; i++) {
-    result += ((int_time - i) * i >= int_distance);
+  vector<long int> beaten_records;
+
+  for (long unsigned int i = 0; i < int_time.size(); i++) {
+    beaten_records.push_back(0);
+    for (long unsigned int j = 0; j <= int_time[i]; j++) {
+      beaten_records[i] += ((int_time[i] - j) * j > int_distance[i]);
+    }
+  }
+
+  // Get final result
+  int result = 1;
+
+  for (const auto &elem : beaten_records) {
+    result *= elem;
   }
 
   return result;
@@ -91,30 +98,30 @@ long int aux(string file) {
 // Test for aux()
 void test_aux() {
   // Test basic
-  if (aux("example_part_two") == 71503) {
+  if (aux("example_part_one") == 6440) {
     cout << "Test aux example success" << endl;
   } else {
     cout << "Test aux example failed" << endl;
   }
 
-  // Test input
-  if (aux("puzzle") == 34123437) {
-    cout << "Test aux input success" << endl;
-  } else {
-    cout << "Test aux input failed" << endl;
-  }
+  // // Test input
+  // if (aux("puzzle") == 131376) {
+  //   cout << "Test aux input success" << endl;
+  // } else {
+  //   cout << "Test aux input failed" << endl;
+  // }
 }
 
 int main() {
-  cout << "what is the name of your file?" << endl;
+  // cout << "what is the name of your file?" << endl;
 
-  string file;
+  // string file;
 
-  cin >> file;
+  // cin >> file;
 
   test_aux();
 
-  cout << "Final result for part two: " << aux(file) << endl;
+  // cout << "Final result for part one: " << aux(file) << endl;
 
   return 0;
 }
