@@ -230,24 +230,24 @@ void test_aux() {
     cout << "Test aux example failed" << endl;
   }
 
-  // // Test input
-  // if (aux("puzzle") == 22956580) {
-  //   cout << "Test aux input success" << endl;
-  // } else {
-  //   cout << "Test aux input failed" << endl;
-  // }
+  // Test input
+  if (aux("puzzle") == 20358599) {
+    cout << "Test aux input success" << endl;
+  } else {
+    cout << "Test aux input failed" << endl;
+  }
 }
 
 int main() {
-  // cout << "what is the name of your file?" << endl;
+  cout << "what is the name of your file?" << endl;
 
-  // string file;
+  string file;
 
-  // cin >> file;
+  cin >> file;
 
   test_aux();
 
-  cout << "Final result for part two: " << aux("puzzle") << endl;
+  cout << "Final result for part two: " << aux(file) << endl;
 
   return 0;
 }

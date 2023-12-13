@@ -98,7 +98,7 @@ int main() {
 
   test_aux();
 
-  cout << "Final result for part one: " << aux(file) << endl;
+  cout << "Final result for part two: " << aux(file) << endl;
 
   return 0;
 }
