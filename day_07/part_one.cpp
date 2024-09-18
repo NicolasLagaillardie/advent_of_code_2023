@@ -11,6 +11,30 @@
 #include <vector>
 using namespace std;
 
+class Card {
+public:
+  bool operator<(const Card &other_card) const;
+  //  private:
+  string char_0;
+  string char_1;
+  string char_2;
+  string char_3;
+  string char_4;
+};
+
+bool Card::operator<(const Card &other_card) const {
+  bool is_less_than;
+
+  if ()
+
+  if (m_suit == other_card.m_suit) {
+    is_less_than = m_rank < other_card.m_rank;
+  } else {
+    is_less = m_suit < other_card.m_suit;
+  }
+  return is_less_than;
+}
+
 vector<string> cards = {"A", "K", "Q", "J", "T", "9", "8",
                         "7", "6", "5", "4", "3", "2"};
 
